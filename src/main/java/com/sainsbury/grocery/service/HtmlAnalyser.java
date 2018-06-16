@@ -2,6 +2,7 @@ package com.sainsbury.grocery.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,10 +22,13 @@ public class HtmlAnalyser {
         return htmlElements;
     }
 
-    public static String extractSingleHtmlElement(String html, String cssQuery, int selectPosition) {
+    public static String extractSingleHtmlElement(String html, String cssQuery) {
         Document doc = Jsoup.parse(html, BASE_URI);
-        Element element = doc.select(cssQuery).get(selectPosition);
-        return element.text().toString();
+        Optional<Element> element = Optional.ofNullable(doc.select(cssQuery).first());
+        if (element.isPresent()) {
+            return element.get().text().toString();
+        }
+        return null;
     }
 
     public static List<Element> getElementAttributesAsList(List<Element> elements, String attribute) {

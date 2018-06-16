@@ -2,11 +2,11 @@ package com.sainsbury.grocery.product;
 
 public class Product {
     private String title;
-    private String kcal_per_100g;
+    private int kcal_per_100g;
     private Double unit_price;
     private String description;
 
-    public Product(String title, String kcal, Double unit_price, String description) {
+    public Product(String title, int kcal, Double unit_price, String description) {
         this.title = title;
         this.kcal_per_100g = kcal;
         this.unit_price = unit_price;
@@ -21,11 +21,11 @@ public class Product {
         this.title = title;
     }
 
-    public String getKcal_per_100g() {
+    public int getKcal_per_100g() {
         return kcal_per_100g;
     }
 
-    public void setKcal_per_100g(String kcal_per_100g) {
+    public void setKcal_per_100g(int kcal_per_100g) {
         this.kcal_per_100g = kcal_per_100g;
     }
 

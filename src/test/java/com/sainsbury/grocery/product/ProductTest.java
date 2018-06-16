@@ -1,7 +1,6 @@
 package com.sainsbury.grocery.product;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
@@ -12,7 +11,7 @@ public class ProductTest {
 
     @Before
     public void setup() {
-        strawberry = new Product("Sainsbury's Strawberries 400g", null, 1.75, "by Sainsbury's strawberries");
+        strawberry = new Product("Sainsbury's Strawberries 400g", 1, 1.75, "by Sainsbury's strawberries");
     }
 
     @Test
@@ -32,7 +31,7 @@ public class ProductTest {
 
     @Test
     public void assertCorrectProductCalories() {
-        assertThat(strawberry.getKcal_per_100g(), nullValue());
+        assertThat(strawberry.getKcal_per_100g(), is(1));
     }
 
 }

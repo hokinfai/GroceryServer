@@ -27,8 +27,9 @@ public class HtmlAnalyserTest {
 
     @Test
     public void assertProductDetailsAreExtracted() throws IOException {
-        String htmlElements = HtmlAnalyser.extractSingleHtmlElement(Resources.toString(Resources.getResource("exampleProductDetails.html"), UTF_8),
-                "div.productContent div.productTitleDescriptionContainer h1", 0);
+        String htmlElements = HtmlAnalyser.extractSingleHtmlElement(
+                Resources.toString(Resources.getResource("exampleProductDetails.html"), UTF_8),
+                "div.productContent div.productTitleDescriptionContainer h1");
         assertThat(htmlElements, is("Sainsbury's Raspberries, Taste the Difference 150g"));
     }
 
