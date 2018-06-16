@@ -1,4 +1,4 @@
-package com.sainsbury.grocery.core;
+package com.sainsbury.grocery.service;
 
 import static com.google.common.base.Charsets.UTF_8;
 import static org.hamcrest.CoreMatchers.containsString;
@@ -15,13 +15,12 @@ import org.jsoup.nodes.Element;
 import org.junit.Test;
 
 import com.google.common.io.Resources;
-import com.sainsbury.grocery.service.HtmlAnalyser;
 
 public class HtmlAnalyserTest {
 
     @Test
     public void assertProductInfoAreExtracted() throws IOException {
-        List<Element> htmlElements = HtmlAnalyser.extractHtmlElements(Resources.toString(Resources.getResource("example.html"), UTF_8),
+        List<Element> htmlElements = HtmlAnalyser.extractHtmlElements(Resources.toString(Resources.getResource("exampleProduct.html"), UTF_8),
                 "div.productInfo");
         assertThatEachElementContainsString(htmlElements, "productInfo");
     }

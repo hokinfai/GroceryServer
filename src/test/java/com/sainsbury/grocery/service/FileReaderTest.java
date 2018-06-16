@@ -1,4 +1,4 @@
-package com.sainsbury.grocery.core;
+package com.sainsbury.grocery.service;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
