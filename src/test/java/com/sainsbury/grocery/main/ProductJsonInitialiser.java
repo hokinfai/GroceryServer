@@ -10,9 +10,11 @@ import com.sainsbury.grocery.core.GrossCalculator;
 import com.sainsbury.grocery.core.ProductDetailRetriever;
 import com.sainsbury.grocery.data.DataRetriever;
 import com.sainsbury.grocery.product.AdditionalFields;
+import com.sainsbury.grocery.product.GroceryProducts;
 import com.sainsbury.grocery.product.Product;
 import com.sainsbury.grocery.service.FileReader;
 import com.sainsbury.grocery.service.HtmlAnalyser;
+import com.sainsbury.grocery.service.JsonObjectWriter;
 
 public class ProductJsonInitialiser {
 
@@ -29,7 +31,8 @@ public class ProductJsonInitialiser {
         List<Product> productList = ProductDetailRetriever.getProductDetail(productLink);
         GrossCalculator grossCalculator = new GrossCalculator(productList);
         AdditionalFields fields = new AdditionalFields(grossCalculator.getGross(), grossCalculator.getVat());
-        // JsonObjectWriter.writeAsJson(productList);
+//        new GroceryProducts(productList, fields);
+        JsonObjectWriter.writeAsJson(new GroceryProducts(productList, fields));
     }
 
 }
