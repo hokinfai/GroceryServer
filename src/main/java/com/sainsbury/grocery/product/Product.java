@@ -6,9 +6,9 @@ public class Product {
     private Double unit_price;
     private String description;
 
-    public Product(String title, int kcal, Double unit_price, String description) {
+    public Product(String title, int calories, Double unit_price, String description) {
         this.title = title;
-        this.kcal_per_100g = kcal;
+        this.kcal_per_100g = calories;
         this.unit_price = unit_price;
         this.description = description;
     }
@@ -25,8 +25,8 @@ public class Product {
         return kcal_per_100g;
     }
 
-    public void setKcal_per_100g(int kcal_per_100g) {
-        this.kcal_per_100g = kcal_per_100g;
+    public void setKcal_per_100g(int calories) {
+        this.kcal_per_100g = calories;
     }
 
     public Double getUnit_price() {

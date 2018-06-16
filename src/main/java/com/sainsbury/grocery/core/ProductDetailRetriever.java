@@ -23,11 +23,7 @@ public class ProductDetailRetriever {
         HttpClient client = HttpClientBuilder.create().build();
         for (String url : productUrls) {
             String productDetail = getProductDetailPage(client, url);
-            String title = getProductTitle(productDetail);
-            String description = getProductDescription(productDetail);
-            Double price = getProductPrice(productDetail);
-            int calories = getProductCalories(productDetail);
-            products.add(new Product(title, calories, price, description));
+            products.add(new Product(getProductTitle(productDetail), getProductCalories(productDetail), getProductPrice(productDetail), getProductDescription(productDetail)));
         }
         return products;
     }

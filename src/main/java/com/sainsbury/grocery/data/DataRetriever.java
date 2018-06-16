@@ -15,9 +15,8 @@ import com.sainsbury.grocery.httpclient.RequestFactory;
 
 public class DataRetriever {
 
-    public static final String URL_HOST = "https://www.sainsburys.co.uk";
-    public static final String URL_PATH = "/shop/gb/groceries/fruit-veg/berries-cherries-currants";
-
+    public static final String URL_HOST = "https://jsainsburyplc.github.io";
+    public static final String URL_PATH = "/serverside-test/site/www.sainsburys.co.uk/webapp/wcs/stores/servlet/gb/groceries/berries-cherries-currants6039.html";
     public static void downloadPageHtml() throws IOException {
         HttpUriRequest request = RequestFactory.createGet(URL_HOST + URL_PATH);
         HttpClient client = HttpClientBuilder.create().build();
