@@ -1,4 +1,4 @@
-package com.sainsbury.grocery.core;
+package com.sainsbury.grocery.service;
 
 import static com.google.common.base.Charsets.UTF_8;
 

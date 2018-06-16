@@ -15,18 +15,18 @@ import com.sainsbury.grocery.httpclient.RequestFactory;
 
 public class DataRetriever {
 
-    private static final String host = "https://www.sainsburys.co.uk";
-    private static final String path = "/shop/gb/groceries/fruit-veg/berries-cherries-currants";
+    public static final String URL_HOST = "https://www.sainsburys.co.uk";
+    public static final String URL_PATH = "/shop/gb/groceries/fruit-veg/berries-cherries-currants";
 
-    public void downloadPageHtml() throws IOException {
-        HttpUriRequest request = RequestFactory.createGet(host + path);
+    public static void downloadPageHtml() throws IOException {
+        HttpUriRequest request = RequestFactory.createGet(URL_HOST + URL_PATH);
         HttpClient client = HttpClientBuilder.create().build();
         HttpResponse response = client.execute(request);
         HttpResponseStatus.assertOk(response);
         savePageAsResources(HttpResponseBody.toString(response));
     }
 
-    private void savePageAsResources(String htmlString) throws IOException {
+    private static void savePageAsResources(String htmlString) throws IOException {
         Files.write(Paths.get("./src/main/resources/sainsburyGrocery.html"), htmlString.getBytes());
     }
 }

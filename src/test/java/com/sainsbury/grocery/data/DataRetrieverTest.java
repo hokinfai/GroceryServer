@@ -9,8 +9,7 @@ public class DataRetrieverTest {
 
     @Test
     public void test() throws ClientProtocolException, IOException {
-        DataRetriever data = new DataRetriever();
-        data.downloadPageHtml();
+        DataRetriever.downloadPageHtml();
     }
 
 }
