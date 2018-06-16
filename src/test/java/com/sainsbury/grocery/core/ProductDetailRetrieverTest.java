@@ -16,14 +16,14 @@ import com.sainsbury.grocery.product.Product;
 public class ProductDetailRetrieverTest {
 
     @Test
-    public void assertProductObject() throws IOException {
+    public void assertProductObjectIsGeneratedFromUrl() throws IOException {
         String[] productUrls = {
-                "https://www.sainsburys.co.uk/shop/gb/groceries/berries-cherries-currants/sainsburys-raspberries--taste-the-difference-150g" };
+                "https://jsainsburyplc.github.io/serverside-test/site/www.sainsburys.co.uk/shop/gb/groceries/berries-cherries-currants/sainsburys-strawberries--taste-the-difference-300g.html" };
         List<Product> products = ProductDetailRetriever.getProductDetail(Arrays.asList(productUrls));
-        assertThat(products.get(0).getTitle(), is("Sainsbury's Raspberries, Taste the Difference 150g"));
-        assertThat(products.get(0).getDescription(), is("Ttd raspberries"));
+        assertThat(products.get(0).getTitle(), is("Sainsbury's Strawberries, Taste the Difference 300g"));
+        assertThat(products.get(0).getDescription(), is("Ttd strawberries"));
         assertThat(products.get(0).getUnit_price(), is(2.50));
-        assertThat(products.get(0).getKcal_per_100g(), is(32));
+        assertThat(products.get(0).getKcal_per_100g(), is(33));
     }
 
     @Test
