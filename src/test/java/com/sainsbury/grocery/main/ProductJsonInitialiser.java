@@ -14,9 +14,9 @@ public class ProductJsonInitialiser {
     public static void main(String[] args) throws IOException {
         DataRetriever.downloadPageHtml();
         String htmlFile = FileReader.readFileFrom("sainsburyGrocery.html");
-        List<Element> products = HtmlAnalyser.extractHtmlElements(htmlFile, "div.productInfo");
-        List<Element> productAnchor = HtmlAnalyser.getElementAttributes(products, "a");
-        List<String> productLink = HtmlAnalyser.getAttributeValue(productAnchor, "href");
+        List<Element> products = HtmlAnalyser.extractHtmlElementsAsList(htmlFile, "div.productInfo");
+        List<Element> productAnchor = HtmlAnalyser.getElementAttributesAsList(products, "a");
+        List<String> productLink = HtmlAnalyser.getAttributeValueAsList(productAnchor, "href");
         System.out.println(productLink);
     }
 

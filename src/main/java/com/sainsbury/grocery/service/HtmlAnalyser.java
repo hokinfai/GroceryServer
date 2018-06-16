@@ -13,7 +13,7 @@ import com.sainsbury.grocery.data.DataRetriever;
 public class HtmlAnalyser {
     private static final String BASE_URI = DataRetriever.URL_HOST + DataRetriever.URL_PATH;
 
-    public static List<Element> extractHtmlElements(String html, String cssQuery) {
+    public static List<Element> extractHtmlElementsAsList(String html, String cssQuery) {
         List<Element> htmlElements = new ArrayList<Element>();
         Document doc = Jsoup.parse(html, BASE_URI);
         Elements elements = doc.select(cssQuery);
@@ -21,13 +21,19 @@ public class HtmlAnalyser {
         return htmlElements;
     }
 
-    public static List<Element> getElementAttributes(List<Element> elements, String attribute) {
-        List<Element> productAttributes = new ArrayList<>();
+    public static String extractSingleHtmlElement(String html, String cssQuery, int selectPosition) {
+        Document doc = Jsoup.parse(html, BASE_URI);
+        Element element = doc.select(cssQuery).get(selectPosition);
+        return element.text().toString();
+    }
+
+    public static List<Element> getElementAttributesAsList(List<Element> elements, String attribute) {
+        List<Element> productAttributes = new ArrayList<Element>();
         elements.stream().forEach(ele -> productAttributes.add(ele.select(attribute).first()));
         return productAttributes;
     }
 
-    public static List<String> getAttributeValue(List<Element> productAttributes, String cssQuery) {
+    public static List<String> getAttributeValueAsList(List<Element> productAttributes, String cssQuery) {
         List<String> attributes = new ArrayList<>();
         productAttributes.stream().forEach(ele -> attributes.add(ele.attr(cssQuery).toString()));
         return attributes;

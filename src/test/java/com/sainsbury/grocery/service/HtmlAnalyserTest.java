@@ -20,24 +20,31 @@ public class HtmlAnalyserTest {
 
     @Test
     public void assertProductInfoAreExtracted() throws IOException {
-        List<Element> htmlElements = HtmlAnalyser.extractHtmlElements(Resources.toString(Resources.getResource("exampleProduct.html"), UTF_8),
+        List<Element> htmlElements = HtmlAnalyser.extractHtmlElementsAsList(Resources.toString(Resources.getResource("exampleProduct.html"), UTF_8),
                 "div.productInfo");
         assertThatEachElementContainsString(htmlElements, "productInfo");
+    }
+
+    @Test
+    public void assertProductDetailsAreExtracted() throws IOException {
+        String htmlElements = HtmlAnalyser.extractSingleHtmlElement(Resources.toString(Resources.getResource("exampleProductDetails.html"), UTF_8),
+                "div.productContent div.productTitleDescriptionContainer h1", 0);
+        assertThat(htmlElements, is("Sainsbury's Raspberries, Taste the Difference 150g"));
     }
 
     @Test
     public void assertProductLinkAttributesAreExtracted() throws IOException {
         Document doc = Jsoup.parse(Resources.toString(Resources.getResource("exampleProductInfo.html"), UTF_8));
         Element link = doc.select("div.productInfo").first();
-        List<Element> attrbuite = HtmlAnalyser.getElementAttributes(Arrays.asList(link), "a");
+        List<Element> attrbuite = HtmlAnalyser.getElementAttributesAsList(Arrays.asList(link), "a");
         assertThatEachElementContainsString(attrbuite, "a href");
     }
 
     @Test
-    public void assertProductLinksAreExtracted() throws IOException {
+    public void assertProductUrlsAreExtracted() throws IOException {
         Document doc = Jsoup.parse(Resources.toString(Resources.getResource("exampleProductLink.html"), UTF_8));
         Element link = doc.select("a").first();
-        List<String> attrbuite = HtmlAnalyser.getAttributeValue(Arrays.asList(link), "href");
+        List<String> attrbuite = HtmlAnalyser.getAttributeValueAsList(Arrays.asList(link), "href");
         assertThat(attrbuite.get(0), containsString("www"));
     }
 
