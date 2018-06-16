@@ -7,13 +7,13 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import com.sainsbury.grocery.service.FileReader;
+import com.sainsbury.grocery.service.FileController;
 
 public class FileReaderTest {
 
     @Test
     public void assertFileIsConvertedToString() throws IOException {
-        String htmlFile = FileReader.readFileFrom("sainsburyGrocery.html");
+        String htmlFile = FileController.readFileFrom("sainsburyGrocery.html");
         assertThat(htmlFile, containsString("sainsbury"));
     }
 
