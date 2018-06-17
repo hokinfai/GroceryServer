@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.jsoup.nodes.Element;
 
 import com.sainsbury.grocery.core.GrossCalculator;
+import com.sainsbury.grocery.core.InvalidCaloriesFieldRemover;
 import com.sainsbury.grocery.core.ProductDetailRetriever;
 import com.sainsbury.grocery.data.DataRetriever;
 import com.sainsbury.grocery.product.GroceryProducts;
@@ -31,7 +32,8 @@ public class ProductJsonInitialiser {
         List<Product> productList = ProductDetailRetriever.getProductDetail(productLink);
         GrossCalculator grossCalculator = new GrossCalculator(productList);
         ProductGross fields = new ProductGross(grossCalculator.getGross(), grossCalculator.getVat());
-        JsonObjectWriter.writeAsJson(new GroceryProducts(productList, fields));
+        String result = InvalidCaloriesFieldRemover.removeInvalidCaloriesField(JsonObjectWriter.writeAsJson(new GroceryProducts(productList, fields)));
+        System.out.println(result);
+        FileController.savePageAsResources(result, "result.json");
     }
-
 }

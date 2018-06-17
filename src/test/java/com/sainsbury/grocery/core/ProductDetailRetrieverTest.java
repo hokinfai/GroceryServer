@@ -57,7 +57,7 @@ public class ProductDetailRetrieverTest {
     public void assertZeroIsReturnWhenProductCaloriesIsNotAvailable() throws IOException {
         int price = ProductDetailRetriever
                 .getProductCalories(Resources.toString(Resources.getResource("exampleProductDetailsWithoutCalories.html"), UTF_8));
-        assertThat(price, is(0));
+        assertThat(price, is(-1));
     }
 
 }

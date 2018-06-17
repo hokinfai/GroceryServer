@@ -56,7 +56,7 @@ public class ProductDetailRetriever {
 
     public static int getProductCalories(String productHtml) {
         String productCalories = Optional.ofNullable(HtmlAnalyser.extractSingleHtmlElement(productHtml,
-                "table.nutritionTable tr.tableRow0 td")).orElse("0");
+                "table.nutritionTable tr.tableRow0 td")).orElse("-1");
         String calories = productCalories.replaceAll("kcal", "");
         return Integer.parseInt(calories.trim());
     }
