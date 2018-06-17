@@ -9,4 +9,8 @@ The project can be separated into 5 main components: core, data, httpclient, poj
 
 3. pojo is just three pure objects that is used to generate json file.
 
-4. service is a set of helper classes that facilitates the process of reading, writing files.  
+4. service is a set of helper classes that facilitates the process of reading, writing files.  It also uses Jsoup library to parse HTML page.
+
+5. core is the component that does the business logic such as only extracting the necessary data from the html page, calculating the gross and removing invalid data field from the result.  
+
+Unit tests can be found in /src/test/java folder.
