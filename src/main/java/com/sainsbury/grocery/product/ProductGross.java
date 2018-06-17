@@ -1,10 +1,10 @@
 package com.sainsbury.grocery.product;
 
-public class AdditionalFields {
+public class ProductGross {
     private Double gross;
     private Double vat;
 
-    public AdditionalFields(Double gross, Double vat) {
+    public ProductGross(Double gross, Double vat) {
         this.gross = gross;
         this.vat = vat;
     }

@@ -2,6 +2,7 @@ package com.sainsbury.grocery.service;
 
 import static com.google.common.base.Charsets.UTF_8;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -16,5 +17,10 @@ public class FileController {
 
     public static void savePageAsResources(String content, String fileName) throws IOException {
         Files.write(Paths.get("./src/main/resources/" + fileName), content.getBytes());
+    }
+
+    public static boolean isFileExist(String filePath) {
+        File file = new File(filePath);
+        return file.exists();
     }
 }

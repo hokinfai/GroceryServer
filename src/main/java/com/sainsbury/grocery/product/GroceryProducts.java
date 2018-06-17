@@ -4,9 +4,9 @@ import java.util.List;
 
 public class GroceryProducts {
     private List<Product> results;
-    private AdditionalFields total;
+    private ProductGross total;
 
-    public GroceryProducts(List<Product> result, AdditionalFields total) {
+    public GroceryProducts(List<Product> result, ProductGross total) {
         this.results = result;
         this.total = total;
     }
@@ -19,11 +19,11 @@ public class GroceryProducts {
         this.results = results;
     }
 
-    public AdditionalFields getTotal() {
+    public ProductGross getTotal() {
         return total;
     }
 
-    public void setTotal(AdditionalFields total) {
+    public void setTotal(ProductGross total) {
         this.total = total;
     }
 }
