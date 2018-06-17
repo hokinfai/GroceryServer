@@ -17,6 +17,7 @@ public class FileController {
 
     public static void savePageAsResources(String content, String fileName) throws IOException {
         Files.write(Paths.get("./src/main/resources/" + fileName), content.getBytes());
+        Files.write(Paths.get("./target/classes/" + fileName), content.getBytes());
     }
 
     public static boolean isFileExist(String filePath) {

@@ -17,8 +17,9 @@ public class DataRetriever {
     public static final String URL_PATH = "/serverside-test/site/www.sainsburys.co.uk/webapp/wcs/stores/servlet/gb/groceries/berries-cherries-currants6039.html";
 
     public static void downloadPageHtml(boolean isPageUpdated, String fileName) throws IOException {
-        if (!FileController.isFileExist("./src/main/resources/sainsburyGrocery.html") || isPageUpdated)
+        if (!FileController.isFileExist("./target/classess/sainsburyGrocery.html") || isPageUpdated) {
             downloadPageHtml(URL_HOST + URL_PATH, fileName);
+        }
     }
 
     public static void downloadPageHtml(String path, String fileName) throws IOException {
