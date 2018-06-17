@@ -17,14 +17,24 @@ public class FileController {
         return Resources.toString(Resources.getResource(filePath), UTF_8);
     }
 
-    public static void savePageAsResources(String content, String fileName) throws IOException {
+    public static void saveFileAsResources(String content, String fileName) throws IOException {
         Files.write(Paths.get("./src/main/resources/" + fileName), content.getBytes());
+    }
+
+    public static void saveFileAsTarget(String content, String fileName) throws IOException {
         Files.write(Paths.get("./target/classes/" + fileName), content.getBytes());
     }
 
+    public static void deleteFileFromResources(String fileName) throws IOException {
+        Files.delete(Paths.get("./src/main/resources/" + fileName));
+    }
+
+    public static void deleteFileFromTarget(String fileName) throws IOException {
+        Files.delete(Paths.get("./target/classes/" + fileName));
+    }
+
     public static boolean isFileExist(String filePath) {
-        File file = new File(filePath);
-        return file.exists();
+        return new File(filePath).exists();
     }
 
     public static String writeAsJson(Object groceryProducts) throws IOException {

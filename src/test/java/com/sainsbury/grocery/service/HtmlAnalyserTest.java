@@ -46,7 +46,7 @@ public class HtmlAnalyserTest {
         Document doc = Jsoup.parse(Resources.toString(Resources.getResource("exampleProductLink.html"), UTF_8));
         Element link = doc.select("a").first();
         List<String> attrbuite = HtmlAnalyser.getAttributeValueAsList(Arrays.asList(link), "href");
-        assertThat(attrbuite.get(0), containsString("www"));
+        assertThat(attrbuite.get(0), containsString("www.sainsbury"));
     }
 
     private void assertThatEachElementContainsString(List<Element> htmlElements, String expectedString) {

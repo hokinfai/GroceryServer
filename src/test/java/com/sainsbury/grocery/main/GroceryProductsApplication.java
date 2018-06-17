@@ -33,6 +33,6 @@ public class GroceryProductsApplication {
         ProductGross fields = new ProductGross(grossCalculator.getGross(), grossCalculator.getVat());
         String result = InvalidCaloriesFieldRemover.removeInvalidCaloriesField(FileController.writeAsJson(new GroceryProducts(productList, fields)));
         System.out.println(result);
-        FileController.savePageAsResources(result, "result.json");
+        FileController.saveFileAsResources(result, "result.json");
     }
 }

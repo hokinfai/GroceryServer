@@ -1,18 +1,16 @@
-package com.sainsbury.grocery.product;
+package com.sainsbury.grocery.pojo;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.sainsbury.grocery.pojo.Product;
-
 public class ProductTest {
-    private Product strawberry;
+    private static Product strawberry;
 
-    @Before
-    public void setup() {
+    @BeforeClass
+    public static void setup() {
         strawberry = new Product("Sainsbury's Strawberries 400g", 1, 1.75, "by Sainsbury's strawberries");
     }
 
