@@ -1,4 +1,4 @@
-package com.sainsbury.grocery.product;
+package com.sainsbury.grocery.pojo;
 
 import java.util.List;
 

@@ -11,7 +11,7 @@ import java.util.List;
 import org.junit.Test;
 
 import com.google.common.io.Resources;
-import com.sainsbury.grocery.product.Product;
+import com.sainsbury.grocery.pojo.Product;
 
 public class ProductDetailRetrieverTest {
 

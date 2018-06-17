@@ -14,7 +14,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import com.sainsbury.grocery.httpclient.HttpResponseBody;
 import com.sainsbury.grocery.httpclient.HttpResponseStatus;
 import com.sainsbury.grocery.httpclient.RequestFactory;
-import com.sainsbury.grocery.product.Product;
+import com.sainsbury.grocery.pojo.Product;
 import com.sainsbury.grocery.service.HtmlAnalyser;
 
 public class ProductDetailRetriever {

@@ -1,4 +1,4 @@
-package com.sainsbury.grocery.product;
+package com.sainsbury.grocery.pojo;
 
 public class ProductGross {
     private Double gross;

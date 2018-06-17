@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.sainsbury.grocery.pojo.Product;
+
 public class ProductTest {
     private Product strawberry;
 

@@ -10,14 +10,13 @@ import com.sainsbury.grocery.core.GrossCalculator;
 import com.sainsbury.grocery.core.InvalidCaloriesFieldRemover;
 import com.sainsbury.grocery.core.ProductDetailRetriever;
 import com.sainsbury.grocery.data.DataRetriever;
-import com.sainsbury.grocery.product.GroceryProducts;
-import com.sainsbury.grocery.product.Product;
-import com.sainsbury.grocery.product.ProductGross;
+import com.sainsbury.grocery.pojo.GroceryProducts;
+import com.sainsbury.grocery.pojo.Product;
+import com.sainsbury.grocery.pojo.ProductGross;
 import com.sainsbury.grocery.service.FileController;
 import com.sainsbury.grocery.service.HtmlAnalyser;
-import com.sainsbury.grocery.service.JsonObjectWriter;
 
-public class ProductJsonInitialiser {
+public class GroceryProductsApplication {
 
     public static void main(String[] args) throws IOException {
         boolean isPageUpdated = false;
@@ -32,7 +31,7 @@ public class ProductJsonInitialiser {
         List<Product> productList = ProductDetailRetriever.getProductDetail(productLink);
         GrossCalculator grossCalculator = new GrossCalculator(productList);
         ProductGross fields = new ProductGross(grossCalculator.getGross(), grossCalculator.getVat());
-        String result = InvalidCaloriesFieldRemover.removeInvalidCaloriesField(JsonObjectWriter.writeAsJson(new GroceryProducts(productList, fields)));
+        String result = InvalidCaloriesFieldRemover.removeInvalidCaloriesField(FileController.writeAsJson(new GroceryProducts(productList, fields)));
         System.out.println(result);
         FileController.savePageAsResources(result, "result.json");
     }

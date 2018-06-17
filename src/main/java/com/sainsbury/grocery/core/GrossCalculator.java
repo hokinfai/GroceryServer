@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.decimal4j.util.DoubleRounder;
 
-import com.sainsbury.grocery.product.Product;
+import com.sainsbury.grocery.pojo.Product;
 
 public class GrossCalculator {
     private List<Product> products;

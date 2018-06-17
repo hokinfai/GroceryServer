@@ -8,8 +8,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import com.google.common.io.Resources;
+import com.google.gson.Gson;
 
 public class FileController {
+    private final static Gson gson = new Gson();
 
     public static String readFileFrom(String filePath) throws IOException {
         return Resources.toString(Resources.getResource(filePath), UTF_8);
@@ -23,5 +25,9 @@ public class FileController {
     public static boolean isFileExist(String filePath) {
         File file = new File(filePath);
         return file.exists();
+    }
+
+    public static String writeAsJson(Object groceryProducts) throws IOException {
+        return gson.toJson(groceryProducts);
     }
 }

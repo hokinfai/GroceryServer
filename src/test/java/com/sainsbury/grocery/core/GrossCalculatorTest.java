@@ -8,7 +8,7 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sainsbury.grocery.product.Product;
+import com.sainsbury.grocery.pojo.Product;
 
 public class GrossCalculatorTest {
     private final static Product[] product = { new Product("", 1, 12.3, ""), new Product("", 1, 12.3, "") };
